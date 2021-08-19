@@ -1,25 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useContext, useEffect, useState } from 'react';
+import { Switch, Route, Link } from 'react-router-dom';
+import axios from 'axios';
+import QuestionsContext from './Context/QuestionsContext';
+import { AppThemeContextProvider } from './Context/AppThemeContext';
+import Home from './Components/Home';
 
-function App() {
+const App = () => {
+  const [questions, setQuestions] = useState();
+
+  const apiUrl =
+    'https://opentdb.com/api.php?amount=10&difficulty=hard&type=boolean';
+
+  useEffect(() => {
+    axios
+      .get(apiUrl)
+      .then(({ data }) => console.log(data))
+      .catch((e) => console.log(e));
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AppThemeContextProvider>
+      <QuestionsContext.Provider value={{ questions, setQuestions }}>
+        <Switch>
+          {/* <Route path='/play'>
+          <Game />
+        </Route> */}
+          <Route path='/'>
+            <Home />
+          </Route>
+        </Switch>
+      </QuestionsContext.Provider>
+    </AppThemeContextProvider>
   );
-}
+};
 
 export default App;
