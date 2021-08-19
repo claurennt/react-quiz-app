@@ -1,11 +1,11 @@
-import { createContext, useState, useContext } from 'react';
+import { createContext, useContext } from 'react';
 
 const AppThemeContext = createContext();
 
 const useThemeContext = () => useContext(AppThemeContext);
 
 // create common style for entire app
-const AppThemeContextProvider = ({ children }) => {
+const ThemeContextProvider = ({ children }) => {
   const AppTheme = {
     body: {
       textAlign: 'center',
@@ -17,18 +17,17 @@ const AppThemeContextProvider = ({ children }) => {
       alignItems: 'center',
     },
     content: {
-      border: '1px #0FC1B7 thin',
+      border: '1px #0FC1B7 solid',
       padding: '20px',
       positon: 'relative',
       height: '90vh',
-      width: '30%',
+      width: '40vw',
       margin: '0 auto',
       display: 'flex',
-      flexWrap: 'wrap',
       flexDirection: 'column',
       justifyContent: 'center',
       placeContent: 'space-evenly',
-      fontSize: '1.2rem',
+      fontSize: '1.5vw',
       color: '#0FC1B7',
     },
   };
@@ -40,4 +39,4 @@ const AppThemeContextProvider = ({ children }) => {
   );
 };
 
-export { AppThemeContextProvider, useThemeContext };
+export { ThemeContextProvider, useThemeContext };
