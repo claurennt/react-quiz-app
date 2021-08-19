@@ -6,19 +6,33 @@ h1{
     display:"block";
 }
 
-a.begin-button { 
+.home-button, .level-button { 
     color: #fff;	
-   border: 1px solid  #0FC1B7;
-    padding:12px; 
+    border: 1px solid  #0FC1B7;
     cursor:pointer;
     width:30%;
     margin: 0 auto;
     text-decoration: none;
-}
-
-a.begin-button:hover { 
-    background-color: #0FC1B7; 
+    background-color: #29314A;
     
 }
 
+.home-button{
+    padding:12px; 
+}
+
+.home-button:hover { 
+    background-color: #0FC1B7;    
+}
+
+/* .level-button{
+    text-transform:lowercase;
+    color: #29314A;
+    background-color: #0FC1B7;
+} */
+
+.level-button:focus {
+    background-color: #0FC1B7;
+  
+}
 

@@ -2,13 +2,15 @@ import { useContext } from 'react';
 import QuestionsContext from '../Context/QuestionsContext';
 import { useParams, useHistory } from 'react-router-dom';
 
-const Game = () => {
+const QuestionComponent = () => {
   const {
     questions,
     answers: { answers, setAnswers },
   } = useContext(QuestionsContext);
 
+  console.log(questions);
   //retrieve the id from the url to match the question displayed
+
   const { id } = useParams();
   let history = useHistory();
   //  save the question object in the array at the index matching the url paramin a variable
@@ -54,4 +56,4 @@ const Game = () => {
   );
 };
 
-export default Game;
+export default QuestionComponent;

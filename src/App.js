@@ -4,31 +4,37 @@ import axios from 'axios';
 import QuestionsContext from './Context/QuestionsContext';
 import { ThemeContextProvider } from './Context/AppThemeContext';
 import Home from './Components/Home';
-import Game from './Components/Game';
+import QuestionComponent from './Components/QuestionComponent';
 import './App.css';
 
 const App = () => {
   const [questions, setQuestions] = useState();
   const [answers, setAnswers] = useState([]);
 
-  const apiUrl =
-    'https://opentdb.com/api.php?amount=10&difficulty=hard&type=boolean';
+  const [difficulty, setDifficulty] = useState('');
 
   useEffect(() => {
     axios
-      .get(apiUrl)
+      .get(
+        `https://opentdb.com/api.php?amount=10&difficulty=${difficulty}&type=boolean`
+      )
       .then(({ data }) => setQuestions(data.results))
       .catch((e) => console.log(e));
-  }, []);
+  }, [difficulty]);
+
   console.log(questions);
   return (
     <ThemeContextProvider>
       <QuestionsContext.Provider
-        value={{ questions: questions, answers: { answers, setAnswers } }}
+        value={{
+          difficulty: { difficulty, setDifficulty },
+          questions,
+          answers: { answers, setAnswers },
+        }}
       >
         <Switch>
           <Route path='/play/:id'>
-            <Game />
+            <QuestionComponent />
           </Route>
           <Route path='/'>
             <Home />
