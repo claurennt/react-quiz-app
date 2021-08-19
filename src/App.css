@@ -6,21 +6,15 @@
   }
 }
 
-.App {
-  text-align: center;
-  background-color: #29314A;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: #0FC1B7;
+
+@media only screen and (max-width: 900px):{
+  body: {
+        width: 70vw;
+        color:red
+  }
 }
 
-.App-link {
-  color: #61dafb;
-}
+
 
 @keyframes App-logo-spin {
   from {

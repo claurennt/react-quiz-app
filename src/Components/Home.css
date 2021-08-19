@@ -5,3 +5,20 @@ h1{
 .text{
     display:"block";
 }
+
+a.begin-button { 
+    color: #fff;	
+   border: 1px solid  #0FC1B7;
+    padding:12px; 
+    cursor:pointer;
+    width:30%;
+    margin: 0 auto;
+    text-decoration: none;
+}
+
+a.begin-button:hover { 
+    background-color: #0FC1B7; 
+    
+}
+
+
