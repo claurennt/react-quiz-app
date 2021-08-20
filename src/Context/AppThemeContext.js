@@ -17,7 +17,6 @@ const ThemeContextProvider = ({ children }) => {
       alignItems: 'center',
     },
     content: {
-      border: '1px #0FC1B7 solid',
       padding: '20px',
       positon: 'relative',
       height: '90vh',
@@ -31,7 +30,7 @@ const ThemeContextProvider = ({ children }) => {
       color: '#0FC1B7',
     },
   };
-
+  // border: '1px #0FC1B7 solid',
   return (
     <div style={AppTheme.body}>
       <div style={AppTheme.content}>{children}</div>
