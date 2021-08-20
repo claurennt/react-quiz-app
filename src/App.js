@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import axios from 'axios';
-import QuestionsContext from './Context/QuestionsContext';
-import { ThemeContextProvider } from './Context/AppThemeContext';
-import Home from './Components/Home';
-import QuestionComponent from './Components/QuestionComponent';
+import QuestionsContext from './context/QuestionsContext';
+import { ThemeContextProvider } from './context/AppThemeContext';
+import Home from './pages/Home';
+import QuestionComponent from './pages/QuestionComponent';
 import './App.css';
 
 const App = () => {
   const [questions, setQuestions] = useState();
   const [answers, setAnswers] = useState([]);
 
-  const [difficulty, setDifficulty] = useState('');
+  const [difficulty, setDifficulty] = useState();
 
   useEffect(() => {
     axios

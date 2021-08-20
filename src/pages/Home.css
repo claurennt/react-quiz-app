@@ -11,6 +11,7 @@ h1{
     border: 1px solid  #0FC1B7;
     cursor:pointer;
     width:30%;
+   
     margin: 0 auto;
     text-decoration: none;
     background-color: #29314A;
@@ -18,7 +19,8 @@ h1{
 }
 
 .home-button{
-    padding:12px; 
+    margin-top: 20px;
+    padding:10px; 
 }
 
 .home-button:hover { 

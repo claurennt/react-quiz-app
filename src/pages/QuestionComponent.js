@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import QuestionsContext from '../Context/QuestionsContext';
+import QuestionsContext from '../context/QuestionsContext';
 import { useParams, useHistory } from 'react-router-dom';
 
 const QuestionComponent = () => {

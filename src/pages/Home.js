@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import { useContext } from 'react';
-import QuestionsContext from '../Context/QuestionsContext';
-
+import QuestionsContext from '../context/QuestionsContext';
+import DifficultyButton from '../components/DifficultyButton';
 import './Home.css';
 
 const Home = () => {
@@ -10,10 +10,6 @@ const Home = () => {
   } = useContext(QuestionsContext);
 
   //function to select difficulty level of questions and update the state in the parent
-  const chooseDifficultyLevel = (e) => {
-    console.log(e.currentTarget);
-    setDifficulty(e.target.innerText.toLowerCase());
-  };
 
   return (
     <>
@@ -24,26 +20,12 @@ const Home = () => {
         You will be presented with 10 True or False questions.
       </h2>
       <h2 className='text'>Can you score 100%?</h2>
+
       <h3>Choose your level:</h3>
 
-      <button
-        className='level-button'
-        onClick={(e) => chooseDifficultyLevel(e)}
-      >
-        Easy
-      </button>
-      <button
-        className='level-button'
-        onClick={(e) => chooseDifficultyLevel(e)}
-      >
-        Medium
-      </button>
-      <button
-        className='level-button'
-        onClick={(e) => chooseDifficultyLevel(e)}
-      >
-        Hard
-      </button>
+      <DifficultyButton level='easy' />
+      <DifficultyButton level='medium' />
+      <DifficultyButton level='hard' />
 
       {difficulty && (
         <NavLink className='home-button' to={`/play/0`}>
