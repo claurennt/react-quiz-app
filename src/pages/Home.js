@@ -6,7 +6,7 @@ import './Home.css';
 
 const Home = () => {
   const {
-    difficulty: { difficulty, setDifficulty },
+    difficulty: { difficulty },
   } = useContext(QuestionsContext);
 
   //function to select difficulty level of questions and update the state in the parent
@@ -28,7 +28,7 @@ const Home = () => {
       <DifficultyButton level='hard' />
 
       {difficulty && (
-        <NavLink className='home-button' to={`/play/0`}>
+        <NavLink className='begin-button' to={`/play/0`}>
           BEGIN
         </NavLink>
       )}

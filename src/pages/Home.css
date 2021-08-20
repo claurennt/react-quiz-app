@@ -6,7 +6,7 @@ h1{
     display:"block";
 }
 
-.home-button, .level-button { 
+.begin-button, .level-button { 
     color: #fff;	
     border: 1px solid  #0FC1B7;
     cursor:pointer;
@@ -18,12 +18,12 @@ h1{
     
 }
 
-.home-button{
+.begin-button{
     margin-top: 20px;
     padding:10px; 
 }
 
-.home-button:hover { 
+.begin-button:hover { 
     background-color: #0FC1B7;    
 }
 
@@ -38,3 +38,26 @@ h1{
   
 }
 
+input[type=radio]{
+    appearance: none;
+        border-radius: 50%;
+        width: 12px;
+        height: 12px;
+        margin-right: 10px;
+        border: 2px solid #0FC1B7;    
+        position: relative;  
+       ;
+      }
+      
+input[type=radio]:hover{
+         width: 16px;
+         height: 16px;
+        background-color:#0FC1B7;
+        border: 2px solid #29314A;
+        cursor:pointer;
+      }
+    
+.select-option{
+    color:white;
+    font-size:18px;
+}
