@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import { useContext } from 'react';
-import QuestionsContext from '../context/QuestionsContext';
+import QuestionsContext from '../Context/QuestionsContext';
 import DifficultyButton from '../components/DifficultyButton';
 import './Home.css';
 

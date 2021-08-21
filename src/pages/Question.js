@@ -3,7 +3,7 @@ import { useContext } from 'react';
 
 import { useParams, useHistory } from 'react-router-dom';
 
-import QuestionsContext from '../context/QuestionsContext';
+import QuestionsContext from '../Context/QuestionsContext';
 
 import decodeSpecialCharInString from '../utils/decodeSpecialCharInString';
 import './Question.css';
