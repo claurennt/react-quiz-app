@@ -1,7 +1,7 @@
 .result-answer-wrapper{
     text-align: left;
     font-size: 1rem;
-    
+  
     
 }
 
@@ -13,8 +13,14 @@
     margin-right:20px;
 }
 
-.correct{ color: green}
+.correct{ color: #54E346}
 
 .false{
     color: red;
 }
+
+@media screen and (max-width: 800px) {
+    .result-answer-wrapper {
+      font-size: 0.8rem;  }
+      
+  }

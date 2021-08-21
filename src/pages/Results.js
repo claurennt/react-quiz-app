@@ -26,7 +26,7 @@ const Results = () => {
         })}
 
       <button className='begin-button' onClick={() => history.push('/')}>
-        Play Again?
+        PLAY AGAIN?
       </button>
     </div>
   );

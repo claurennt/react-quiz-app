@@ -1,7 +1,8 @@
  .question-card{
      
-   padding:30px; 
+   padding:20px; 
     border: 1px #0FC1B7 solid;
+
  }
 
 
@@ -26,5 +27,12 @@ input[type=radio]:hover{
     
 .select-option{
     color:white;
+    
+}
+
+@media screen and (max-width: 800px) {
+  .question-wrapper {
+    font-size: 0.7rem;  },
+    .question-card{padding:5px}
     
 }

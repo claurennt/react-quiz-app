@@ -11,10 +11,14 @@ const decodeSpecialCharInString = (string) => {
       '&#233'
   )
     ? string
-        .replace(/&quot;/g || /&#039;/g, '"')
-        .replace(/&amp/gi || /&#038;/gi, '&')
-        .replace(/&egrave/gi || /&#232;/gi, 'é')
-        .replace(/&eacute/gi || /&#233;/gi, 'è')
+        .replace(/&quot;/g, '"')
+        .replace(/&#039;/g, '"')
+        .replace(/&amp/gi, '&')
+        .replace(/&#038;/gi, '&')
+        .replace(/&egrave/gi, 'é')
+        .replace(/&#232;/gi, 'é')
+        .replace(/&eacute/gi, 'è')
+        .replace(/&#233;/gi, 'è')
     : string;
 };
 

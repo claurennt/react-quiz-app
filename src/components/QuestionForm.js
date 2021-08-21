@@ -2,7 +2,7 @@ import Select from './Select';
 
 const QuestionForm = ({ category, question, handleSubmit, questionId }) => {
   return (
-    <>
+    <div className='question-wrapper'>
       <h3>This question is about: {category}</h3>
       <div className='question-card'>
         <form onClick={(e) => handleSubmit(e)}>
@@ -14,7 +14,7 @@ const QuestionForm = ({ category, question, handleSubmit, questionId }) => {
         </form>
       </div>
       <p>{questionId} of 10</p>
-    </>
+    </div>
   );
 };
 

@@ -10,8 +10,7 @@ h1{
     color: #fff;	
     border: 1px solid  #0FC1B7;
     cursor:pointer;
-    width:30%;
-   
+   font-size: 1rem;
     margin: 0 auto;
     text-decoration: none;
     background-color: #29314A;
@@ -21,17 +20,14 @@ h1{
 .begin-button{
     margin-top: 20px;
     padding:10px; 
+    width:30%;
 }
 
 .begin-button:hover { 
     background-color: #0FC1B7;    
 }
 
-/* .level-button{
-    text-transform:lowercase;
-    color: #29314A;
-    background-color: #0FC1B7;
-} */
+.level-button{width:20%}
 
 .level-button:focus {
     background-color: #0FC1B7;
