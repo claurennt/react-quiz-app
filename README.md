@@ -1,6 +1,6 @@
 # React Quiz App
 
-# The purpose of this procet was to create a small quiz app with react.
+# The purpose of this project was to create a small quiz app with react.
 The project has few controls, it is almost fully automated.
 At the beginning the user has the possiblity to choose the difficulty level of the questions.
 After clicking on the begin button, the first question will displayed. Each following question will appear 1 second after the user will answer. 
