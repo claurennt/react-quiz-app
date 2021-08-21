@@ -28,7 +28,7 @@ const Home = () => {
       <DifficultyButton level='hard' />
 
       {difficulty && (
-        <NavLink className='begin-button' to={`/play/0`}>
+        <NavLink className='begin-button' to={`/play/1`}>
           BEGIN
         </NavLink>
       )}

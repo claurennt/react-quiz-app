@@ -37,27 +37,3 @@ h1{
     background-color: #0FC1B7;
   
 }
-
-input[type=radio]{
-    appearance: none;
-        border-radius: 50%;
-        width: 12px;
-        height: 12px;
-        margin-right: 10px;
-        border: 2px solid #0FC1B7;    
-        position: relative;  
-       ;
-      }
-      
-input[type=radio]:hover{
-         width: 16px;
-         height: 16px;
-        background-color:#0FC1B7;
-        border: 2px solid #29314A;
-        cursor:pointer;
-      }
-    
-.select-option{
-    color:white;
-    font-size:18px;
-}

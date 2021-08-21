@@ -2,7 +2,7 @@
 const decodeSpecialCharInString = (string) => {
   return string.includes(
     '&quot' ||
-      '&#039' ||
+      '&#039;' ||
       '&amp' ||
       '&#038' ||
       '&egrave' ||

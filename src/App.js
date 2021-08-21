@@ -5,6 +5,7 @@ import QuestionsContext from './context/QuestionsContext';
 import { ThemeContextProvider } from './context/AppThemeContext';
 import Home from './pages/Home';
 import Question from './pages/Question';
+import Results from './pages/Results';
 import './App.css';
 
 const App = () => {
@@ -22,19 +23,21 @@ const App = () => {
       .catch((e) => console.log(e));
   }, [difficulty]);
 
-  console.log(difficulty);
   return (
     <ThemeContextProvider>
       <QuestionsContext.Provider
         value={{
           difficulty: { difficulty, setDifficulty },
-          questions,
+          questions: questions,
           answers: { answers, setAnswers },
         }}
       >
         <Switch>
           <Route path='/play/:id'>
             <Question />
+          </Route>
+          <Route path='/game/results'>
+            <Results />
           </Route>
           <Route path='/'>
             <Home />
