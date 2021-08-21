@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import axios from 'axios';
-import QuestionsContext from './context/QuestionsContext';
-import { ThemeContextProvider } from './context/AppThemeContext';
+import QuestionsContext from './Context/QuestionsContext';
+import { ThemeContextProvider } from './Context/AppThemeContext';
 import Home from './pages/Home';
 import Question from './pages/Question';
 import Results from './pages/Results';
