@@ -8,7 +8,7 @@ const Home = () => {
   const {
     difficulty: { difficulty },
   } = useContext(QuestionsContext);
-
+  console.log(difficulty);
   //function to select difficulty level of questions and update the state in the parent
 
   return (
