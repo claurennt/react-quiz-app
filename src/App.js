@@ -4,7 +4,7 @@ import axios from 'axios';
 import QuestionsContext from './context/QuestionsContext';
 import { ThemeContextProvider } from './context/AppThemeContext';
 import Home from './pages/Home';
-import QuestionComponent from './pages/QuestionComponent';
+import Question from './pages/Question';
 import './App.css';
 
 const App = () => {
@@ -22,7 +22,7 @@ const App = () => {
       .catch((e) => console.log(e));
   }, [difficulty]);
 
-  console.log(questions);
+  console.log(difficulty);
   return (
     <ThemeContextProvider>
       <QuestionsContext.Provider
@@ -34,7 +34,7 @@ const App = () => {
       >
         <Switch>
           <Route path='/play/:id'>
-            <QuestionComponent />
+            <Question />
           </Route>
           <Route path='/'>
             <Home />

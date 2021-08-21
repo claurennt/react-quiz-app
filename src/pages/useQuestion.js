@@ -1,16 +1,16 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
+
 import { useParams, useHistory } from 'react-router-dom';
 
 import QuestionsContext from '../context/QuestionsContext';
-import Select from '../components/Select';
 
 import decodeSpecialCharInString from '../utils/decodeSpecialCharInString';
 
-const QuestionComponent = () => {
-  const {
-    questions,
-    answers: { answers, setAnswers },
-  } = useContext(QuestionsContext);
+// custom hook to handle question card logic
+const useQuestion = () => {
+  const { questions } = useContext(QuestionsContext);
+
+  const [answers, setAnswers] = useState([]);
 
   //retrieve the id from the url to match the question to display
   const { id } = useParams();
@@ -23,7 +23,7 @@ const QuestionComponent = () => {
   const decodedQuestion = decodeSpecialCharInString(question);
 
   //   function to submit the answer and update the state
-  const handleAnswerSubmit = (e) => {
+  const handleSubmitAnswer = (e) => {
     e.preventDefault();
 
     // create new answer object to store it in the state
@@ -43,18 +43,7 @@ const QuestionComponent = () => {
     }, 2000);
   };
 
-  return (
-    <>
-      {question && (
-        <form onClick={handleAnswerSubmit}>
-          <h3>This question is about: {category}</h3>
-          <h4>{decodedQuestion}</h4>
-          <Select option='true' />
-          <Select option='false' />
-        </form>
-      )}
-    </>
-  );
+  return { decodedQuestion, category, question, handleSubmitAnswer };
 };
 
-export default QuestionComponent;
+export default useQuestion;
