@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import QuestionsContext from '../context/QuestionsContext';
+import QuestionsContext from '../Context/QuestionsContext';
 
 const DifficultyButton = ({ level }) => {
   const {
