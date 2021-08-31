@@ -48,7 +48,7 @@ const Question = () => {
       questionId < 10
         ? history.push(`/play/${questionId + 1}`)
         : history.push(`/game/results`);
-    }, 2000);
+    }, 700);
   };
   return (
     <>
