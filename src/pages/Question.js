@@ -6,6 +6,7 @@ import { useParams, useHistory } from 'react-router-dom';
 import QuestionsContext from '../Context/QuestionsContext';
 
 import decodeSpecialCharInString from '../utils/decodeSpecialCharInString';
+import answerExists from '../utils/answerExists';
 import './Question.css';
 
 const Question = () => {
@@ -28,20 +29,25 @@ const Question = () => {
 
   //save the question in a variable after decoding the special characters if present
   const decodedQuestion = decodeSpecialCharInString(question);
-
+  // console.log(answerExists(answers, questionId));
   //   function to submit the answer and update the state
   const handleSubmitAnswer = (e) => {
     e.preventDefault();
 
     // create new answer object to store it in the state
     const newAnswer = {
+      id: questionId,
       question: decodedQuestion,
-      answer: e.target.id,
-      isCorrect: e.target.id === correct_answer ? true : false,
+      answer: e.target.value,
+      isCorrect: e.target.value === correct_answer ? true : false,
     };
-    console.log(correct_answer, newAnswer.answer);
-    // populate the state with the new answer and keep the previous state
-    setAnswers(answers ? [...answers, newAnswer] : newAnswer);
+
+    // check if the answers array already contains the answerId we are trying to add,alert the user if it does exist, exit the function
+    if (answers && answerExists(answers, newAnswer.id)) {
+      alert('You have already answered this question!');
+      return false;
+      // populate the state with the new answer and keep the previous state
+    } else setAnswers(answers ? [...answers, newAnswer] : newAnswer);
 
     // redirect to the next question after 1 second
     setTimeout(() => {
@@ -50,6 +56,7 @@ const Question = () => {
         : history.push(`/game/results`);
     }, 700);
   };
+
   return (
     <>
       {question && (

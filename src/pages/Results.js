@@ -8,7 +8,7 @@ const Results = () => {
   const history = useHistory();
 
   const {
-    answers: { answers },
+    answers: { answers, setAnswers },
   } = useContext(QuestionsContext);
   console.log(answers);
 
@@ -16,6 +16,12 @@ const Results = () => {
   const numberCorrectAnswers = answers.filter(
     (answer) => answer.isCorrect === true
   ).length;
+
+  // clear the answers state on play againa and redirect to homepage
+  const handlePlayAgain = () => {
+    setAnswers();
+    history.push('/');
+  };
 
   return (
     <div className='result-answer-wrapper'>
@@ -25,7 +31,7 @@ const Results = () => {
           return <AnswerResult answer={answer} key={index} />;
         })}
 
-      <button className='begin-button' onClick={() => history.push('/')}>
+      <button className='begin-button' onClick={() => handlePlayAgain()}>
         PLAY AGAIN?
       </button>
     </div>
