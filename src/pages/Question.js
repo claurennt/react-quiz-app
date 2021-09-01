@@ -14,7 +14,6 @@ const Question = () => {
     questions,
     answers: { answers, setAnswers },
   } = useContext(QuestionsContext);
-  console.log(questions);
 
   //retrieve the id from the url to match the question to display
   const { id } = useParams();
@@ -29,7 +28,7 @@ const Question = () => {
 
   //save the question in a variable after decoding the special characters if present
   const decodedQuestion = decodeSpecialCharInString(question);
-  // console.log(answerExists(answers, questionId));
+
   //   function to submit the answer and update the state
   const handleSubmitAnswer = (e) => {
     e.preventDefault();
