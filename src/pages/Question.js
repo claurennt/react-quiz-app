@@ -14,13 +14,14 @@ const Question = () => {
     questions,
     answers: { answers, setAnswers },
   } = useContext(QuestionsContext);
-
+  console.log(questions);
   //retrieve the id from the url to match the question to display
   const { id } = useParams();
 
   let history = useHistory();
 
   // retrieve the object properties needed from the question at the index matching the param of the url
+
   const { question, correct_answer, category } = questions[Number(id - 1)];
 
   //create question id number for the question card
@@ -58,7 +59,7 @@ const Question = () => {
 
   return (
     <>
-      {question && (
+      {questions && (
         <>
           <QuestionForm
             category={category}

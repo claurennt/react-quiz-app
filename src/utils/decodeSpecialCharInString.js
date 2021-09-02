@@ -4,7 +4,7 @@ const decodeSpecialCharInString = (string) => {
     const element = document.createElement('textarea');
     element.innerHTML = string;
     const decoded = element.value;
-    console.log(decoded);
+
     return decoded;
   } catch (e) {
     console.error(e);
