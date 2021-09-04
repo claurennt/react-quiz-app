@@ -6,10 +6,15 @@ const DifficultyButton = ({ level }) => {
     difficulty: { setDifficulty },
   } = useContext(QuestionsContext);
 
+  const handleClick = () => {
+    setDifficulty(level);
+    localStorage.removeItem('answers-storage');
+  };
+
   return (
     <>
       {/* change difficulty state based on prop*/}
-      <button className='level-button' onClick={() => setDifficulty(level)}>
+      <button className='level-button' onClick={() => handleClick()}>
         {level} {/* display difficulty level based on prop */}
       </button>
     </>

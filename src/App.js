@@ -7,14 +7,11 @@ import Home from './pages/Home';
 import Question from './pages/Question';
 import Results from './pages/Results';
 import './App.css';
+
 import saveToLocalStorage from './utils/saveToLocalStorage';
-import getFromLocalStorage from './utils/getFromLocalStorage';
 
 const App = () => {
-  //get data from local storage if there is any and set it to state, else set state  to empty array
-  const storedQuestions = getFromLocalStorage('questions-storage', []);
-
-  const [questions, setQuestions] = useState(storedQuestions);
+  const [questions, setQuestions] = useState([]);
   const [answers, setAnswers] = useState([]);
   const [difficulty, setDifficulty] = useState();
 
@@ -30,15 +27,16 @@ const App = () => {
   }, [difficulty]);
 
   useEffect(() => {
-    saveToLocalStorage('questions-storage', storedQuestions);
-  }, [storedQuestions]);
+    //save fetched questions to local storage
+    saveToLocalStorage('questions-storage', questions);
+  }, [questions]);
 
   return (
     <ThemeContextProvider>
       <QuestionsContext.Provider
         value={{
           difficulty: { difficulty, setDifficulty },
-          questions: { questions, setQuestions, storedQuestions },
+          questions: { questions, setQuestions },
           answers: { answers, setAnswers },
         }}
       >

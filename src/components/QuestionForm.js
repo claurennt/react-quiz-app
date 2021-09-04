@@ -5,12 +5,12 @@ const QuestionForm = ({ category, question, handleSubmit, questionId }) => {
     <div className='question-wrapper'>
       <h3>This question is about: {category}</h3>
       <div className='question-card'>
-        <form onClick={(e) => handleSubmit(e)}>
+        <form>
           <h4>
             <em>{question}</em>
           </h4>
-          <Select option='True' />
-          <Select option='False' />
+          <Select option='True' submit={handleSubmit} />
+          <Select option='False' submit={handleSubmit} />
         </form>
       </div>
       <p>{questionId} of 10</p>

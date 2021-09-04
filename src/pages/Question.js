@@ -2,8 +2,9 @@ import QuestionForm from '../components/QuestionForm';
 import { useContext, useEffect } from 'react';
 
 import { useParams, useHistory } from 'react-router-dom';
-
+import getFromLocalStorage from '../utils/getFromLocalStorage';
 import QuestionsContext from '../Context/QuestionsContext';
+import saveToLocalStorage from '../utils/saveToLocalStorage';
 
 import decodeSpecialCharInString from '../utils/decodeSpecialCharInString';
 import answerExists from '../utils/answerExists';
@@ -12,33 +13,22 @@ import showNextPage from '../utils/showNextPage';
 
 const Question = () => {
   const {
-    questions: { questions, storedQuestions },
+    questions: { questions },
     answers: { answers, setAnswers },
   } = useContext(QuestionsContext);
 
-  console.log(questions);
   let history = useHistory();
-
-  //retrieve the id from the url to match the question to display
 
   const { id } = useParams();
 
+  const storedQuestions = getFromLocalStorage('questions-storage', []);
+
   // retrieve the object properties needed from the questions/storedQuestion at the index matching the param of the url
   const { question, correct_answer, category } =
-    storedQuestions[Number(id - 1)] || questions[Number(id - 1)];
+    questions[Number(id - 1)] || storedQuestions[Number(id - 1)];
 
   //create question id number for the question card
   const questionId = Number(id);
-  let locationPath = `/play/${questionId}`;
-
-  useEffect(() => {
-    //if page gets refreshed we add the current page to the history stack, ans it gets automatically displayed
-    history.listen((location, action) => {
-      if (action === 'POP' && location.pathname === locationPath) {
-        history.push(location.pathname);
-      }
-    });
-  }, [history, locationPath]);
 
   //save the question in a variable after decoding the special characters if present
   const decodedQuestion = decodeSpecialCharInString(question);
@@ -60,17 +50,32 @@ const Question = () => {
     if (answers && answerExists(answers, newAnswer.id)) {
       alert('You have already answered this question!');
       setTimeout(() => {
-        showNextPage(questionId, history);
+        showNextPage(id, history);
       }, 500);
       return false;
-      // populate the state with the new answer and keep the previous state
-    } else setAnswers(answers ? [...answers, newAnswer] : newAnswer);
+      // populate the state with the new answer and keep the previous state and go to next question
+    } else {
+      const storedAnswers = getFromLocalStorage('answers-storage', []);
+      storedAnswers.push(newAnswer);
+      saveToLocalStorage('answers-storage', storedAnswers);
+      setAnswers(answers ? [...answers, newAnswer] : newAnswer);
 
-    // redirect to the next question after 700 ms
-    setTimeout(() => {
-      showNextPage(questionId, history);
-    }, 700);
+      // redirect to the next question after 500 ms
+      setTimeout(() => {
+        showNextPage(questionId, history);
+      }, 500);
+    }
   };
+
+  useEffect(() => {
+    if (history.action === 'POP') {
+      const stored = getFromLocalStorage('answers-storage', []);
+      console.log('stored', stored);
+      saveToLocalStorage('answers-storage', stored);
+      const s = getFromLocalStorage('answers-storage', []);
+      console.log(s);
+    }
+  }, [history.action]);
 
   return (
     <>

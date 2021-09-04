@@ -1,33 +1,41 @@
 import { useContext } from 'react';
 import QuestionsContext from '../Context/QuestionsContext';
 import AnswerResult from '../components/AnswerResult';
+
 import './Results.css';
 
 import { useHistory } from 'react-router-dom';
+
 const Results = () => {
   const history = useHistory();
 
   const {
-    answers: { answers, setAnswers },
+    answers: { setAnswers },
   } = useContext(QuestionsContext);
-  console.log(answers);
+
+  const storedAnswers = JSON.parse(localStorage.getItem('answers-storage'));
 
   //retrieve number of correctly answered questions
-  const numberCorrectAnswers = answers.filter(
+  const numberCorrectAnswers = storedAnswers.filter(
     (answer) => answer.isCorrect === true
   ).length;
 
   // clear the answers state on play againa and redirect to homepage
   const handlePlayAgain = () => {
+    // set answers state to null
     setAnswers();
+
+    //clear local storage
+    localStorage.removeItem('answers-storage');
+    localStorage.removeItem('questions-storage');
     history.push('/');
   };
 
   return (
     <div className='result-answer-wrapper'>
       <h2>You scored {numberCorrectAnswers} out of 10</h2>
-      {answers &&
-        answers.map((answer, index) => {
+      {storedAnswers &&
+        storedAnswers.map((answer, index) => {
           return <AnswerResult answer={answer} key={index} />;
         })}
 

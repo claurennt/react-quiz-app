@@ -2,7 +2,7 @@
 
 const showNextPage = (questionId, history) => {
   questionId < 10
-    ? history.push(`/play/${questionId + 1}`)
+    ? history.push(`/play/${Number(questionId) + 1}`)
     : history.push(`/game/results`);
 };
 
