@@ -1,21 +1,26 @@
 import QuestionForm from '../components/QuestionForm';
-import { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 
 import { useParams, useHistory } from 'react-router-dom';
-import getFromLocalStorage from '../utils/getFromLocalStorage';
-import QuestionsContext from '../Context/QuestionsContext';
-import saveToLocalStorage from '../utils/saveToLocalStorage';
 
+import QuestionsContext from '../Context/QuestionsContext';
+
+import getFromLocalStorage from '../utils/getFromLocalStorage';
+import pushToLocalStorage from '../utils/pushToLocalStorage';
 import decodeSpecialCharInString from '../utils/decodeSpecialCharInString';
 import answerExists from '../utils/answerExists';
-import './Question.css';
 import showNextPage from '../utils/showNextPage';
+
+import { useAlert } from 'react-alert';
+import './Question.css';
 
 const Question = () => {
   const {
     questions: { questions },
     answers: { answers, setAnswers },
   } = useContext(QuestionsContext);
+
+  const alert = useAlert();
 
   let history = useHistory();
 
@@ -33,7 +38,6 @@ const Question = () => {
   //save the question in a variable after decoding the special characters if present
   const decodedQuestion = decodeSpecialCharInString(question);
 
-  //   function to submit the answer and update the state
   const handleSubmitAnswer = (e) => {
     e.preventDefault();
 
@@ -47,35 +51,22 @@ const Question = () => {
 
     /* check if the answers array already contains the answerId we are trying to add,
     alert the user if it does exist, redirect automatically to next question*/
-    if (answers && answerExists(answers, newAnswer.id)) {
-      alert('You have already answered this question!');
+    if (answerExists(answers, newAnswer.id)) {
+      alert.show('You have already answered this question!');
       setTimeout(() => {
         showNextPage(id, history);
-      }, 500);
+      }, 2000);
       return false;
-      // populate the state with the new answer and keep the previous state and go to next question
-    } else {
-      const storedAnswers = getFromLocalStorage('answers-storage', []);
-      storedAnswers.push(newAnswer);
-      saveToLocalStorage('answers-storage', storedAnswers);
-      setAnswers(answers ? [...answers, newAnswer] : newAnswer);
 
-      // redirect to the next question after 500 ms
+      // push the new Answer to local storage, populate the state with the new answer and go to next question
+    } else {
+      pushToLocalStorage('answers-storage', newAnswer);
+      setAnswers(answers ? [...answers, newAnswer] : newAnswer);
       setTimeout(() => {
         showNextPage(questionId, history);
       }, 500);
     }
   };
-
-  useEffect(() => {
-    if (history.action === 'POP') {
-      const stored = getFromLocalStorage('answers-storage', []);
-      console.log('stored', stored);
-      saveToLocalStorage('answers-storage', stored);
-      const s = getFromLocalStorage('answers-storage', []);
-      console.log(s);
-    }
-  }, [history.action]);
 
   return (
     <>

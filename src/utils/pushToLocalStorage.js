@@ -1,8 +1,9 @@
-// helper function to append new item to local storage
+import getFromLocalStorage from './getFromLocalStorage';
 
+// helper function to append new item to local storage
 const pushToLocalStorage = (key, value) => {
   try {
-    const currentValues = localStorage.getItem(key);
+    const currentValues = getFromLocalStorage(key, []);
 
     currentValues.push(value);
 

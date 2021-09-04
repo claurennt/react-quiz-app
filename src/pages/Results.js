@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import QuestionsContext from '../Context/QuestionsContext';
 import AnswerResult from '../components/AnswerResult';
-
+import getFromLocalStorage from '../utils/getFromLocalStorage';
 import './Results.css';
 
 import { useHistory } from 'react-router-dom';
@@ -13,7 +13,7 @@ const Results = () => {
     answers: { setAnswers },
   } = useContext(QuestionsContext);
 
-  const storedAnswers = JSON.parse(localStorage.getItem('answers-storage'));
+  const storedAnswers = getFromLocalStorage('answers-storage');
 
   //retrieve number of correctly answered questions
   const numberCorrectAnswers = storedAnswers.filter(
