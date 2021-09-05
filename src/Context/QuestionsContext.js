@@ -1,7 +1,22 @@
-import { createContext } from 'react';
+import { createContext, useContext } from 'react';
 
 const QuestionsContext = createContext();
 
-QuestionsContext.displayName = 'QuestionsContext';
+const QuestionsContextProvider = ({ children }) => {
+  const [questions, setQuestions] = useState([]);
+  const [answers, setAnswers] = useState([]);
+  const [difficulty, setDifficulty] = useState();
 
-export default QuestionsContext;
+  return (
+    <QuestionsProvider.Provider
+      value={{
+        difficulty: { difficulty, setDifficulty },
+        questions: { questions, setQuestions },
+        answers: { answers, setAnswers },
+      }}
+    >
+      {children}
+    </QuestionsProvider.Provider>
+  );
+};
+export { QuestionsContextProvider, useQuestions };

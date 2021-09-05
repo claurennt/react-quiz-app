@@ -8,7 +8,6 @@ const DifficultyButton = ({ level }) => {
 
   const handleClick = () => {
     setDifficulty(level);
-    localStorage.removeItem('answers-storage');
   };
 
   return (
