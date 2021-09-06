@@ -7,14 +7,14 @@
 
 
 .option-button{
-    margin:15px;
+    
     color: #fff;	
     border: 1px solid  #0FC1B7;
     cursor:pointer;
     margin:10px;
     padding:10px; 
     width:15%;
-    font-size: 1rem;
+    font-size: 0.8rem;
 
    
     background-color: #29314A;
@@ -34,7 +34,17 @@
 
 @media screen and (max-width: 800px) {
   .question-wrapper {
-    font-size: 0.7rem;  },
-    .question-card{padding:5px}
-    
+    font-size: 0.9rem; 
+margin:0 auto;	
+width:%; 
+},
+.option-button{ font-size: 0.7rem}
+}
+
+@media screen and (max-width: 1000px) {
+ 
+    .option-button{
+      width:30%;
+      margin:10px;
+    }
 }
