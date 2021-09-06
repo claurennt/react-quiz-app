@@ -19,8 +19,10 @@
     color: red;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1253px) {
     .result-answer-wrapper {
-      font-size: 0.8rem;  }
-      
+      font-size: 0.8rem;  
+      height: 100%;
+      margin: -100px;
+    }
   }
