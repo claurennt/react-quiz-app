@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import axios from 'axios';
-import { QuestionsContextProvider } from './Context/QuestionsContext';
+import QuestionsContext from './Context/QuestionsContext';
 import { ThemeContextProvider } from './Context/AppThemeContext';
 import Home from './pages/Home';
 import Question from './pages/Question';
@@ -33,7 +33,16 @@ const App = () => {
 
   return (
     <ThemeContextProvider>
-      <QuestionsContextProvider>
+      <QuestionsContext.Provider
+        value={{
+          difficulty,
+          setDifficulty,
+          questions,
+          setQuestions,
+          answers,
+          setAnswers,
+        }}
+      >
         <Switch>
           <Route path='/play/:id'>
             <Question />
@@ -45,7 +54,7 @@ const App = () => {
             <Home />
           </Route>
         </Switch>
-      </QuestionsContextProvider>
+      </QuestionsContext.Provider>
     </ThemeContextProvider>
   );
 };

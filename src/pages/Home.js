@@ -1,14 +1,12 @@
 import { NavLink } from 'react-router-dom';
-
+import React from 'react';
 import { useQuestionsContext } from '../Context/QuestionsContext';
 import DifficultyButton from '../components/DifficultyButton';
 import './Home.css';
 
 const Home = () => {
-  const {
-    difficulty: { difficulty },
-  } = useQuestionsContext();
-  console.log(difficulty);
+  const { difficulty } = useQuestionsContext();
+
   //function to select difficulty level of questions and update the state in the parent
 
   return (
