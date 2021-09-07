@@ -15,6 +15,7 @@ const App = () => {
   const [answers, setAnswers] = useState([]);
   const [difficulty, setDifficulty] = useState();
 
+  //fetch 10 questions based on difficulty level chosen
   useEffect(() => {
     axios
       .get(
@@ -24,7 +25,7 @@ const App = () => {
         setQuestions(data.results);
       })
       .catch((e) => console.log(e));
-  }, [difficulty]);
+  }, [difficulty]); //triggers the fetch again when difficulty state changes
 
   useEffect(() => {
     //save fetched questions to local storage

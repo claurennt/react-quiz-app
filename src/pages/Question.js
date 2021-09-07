@@ -47,7 +47,7 @@ const Question = () => {
 
     /* check if the answers array already contains the answerId we are trying to add,
     alert the user if it does exist, redirect automatically to next question*/
-    if (answerExists(answers, newAnswer.id)) {
+    if (answers && answerExists(answers, questionId)) {
       alert.show('You have already answered this question!');
       setTimeout(() => {
         showNextPage(id, history);

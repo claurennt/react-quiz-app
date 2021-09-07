@@ -1,5 +1,4 @@
-import { useContext } from 'react';
-import QuestionsContext from '../Context/QuestionsContext';
+import { useQuestionsContext } from '../Context/QuestionsContext';
 import AnswerResult from '../components/AnswerResult';
 import getFromLocalStorage from '../utils/getFromLocalStorage';
 import './Results.css';
@@ -9,9 +8,7 @@ import { useHistory } from 'react-router-dom';
 const Results = () => {
   const history = useHistory();
 
-  const {
-    answers: { setAnswers },
-  } = useContext(QuestionsContext);
+  const { setAnswers } = useQuestionsContext();
 
   const storedAnswers = getFromLocalStorage('answers-storage');
 
@@ -23,7 +20,7 @@ const Results = () => {
   // clear the answers state on play againa and redirect to homepage
   const handlePlayAgain = () => {
     // set answers state to null
-    setAnswers();
+    setAnswers([]);
 
     //clear local storage
     localStorage.removeItem('answers-storage');
