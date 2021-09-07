@@ -21,9 +21,9 @@ const Home = () => {
 
       <h3>Choose your level:</h3>
 
-      <DifficultyButton level='easy' />
-      <DifficultyButton level='medium' />
-      <DifficultyButton level='hard' />
+      <DifficultyButton level='easy' data-test='component-level-button' />
+      <DifficultyButton level='medium' data-test='component-level-button' />
+      <DifficultyButton level='hard' data-test='component-level-button' />
 
       {difficulty && (
         <NavLink className='begin-button' to={`/play/1`}>
