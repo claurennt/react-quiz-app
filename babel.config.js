@@ -1,0 +1,36 @@
+module.exports = {
+  presets: [
+    [
+      '@babel/preset-env',
+      {
+        modules: false,
+        targets: {
+          node: 'current',
+        },
+      },
+    ],
+    '@babel/preset-react',
+  ],
+  env: {
+    test: {
+      presets: ['@babel/preset-env', '@babel/preset-react'],
+      plugins: [
+        [
+          '@babel/plugin-proposal-class-properties',
+          {
+            spec: true,
+          },
+        ],
+      ],
+    },
+  },
+  plugins: [
+    [
+      '@babel/plugin-proposal-class-properties',
+      {
+        spec: true,
+      },
+    ],
+    '@babel/plugin-proposal-object-rest-spread',
+  ],
+};

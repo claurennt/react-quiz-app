@@ -1,9 +1,8 @@
 import QuestionForm from '../components/QuestionForm';
-import { useContext } from 'react';
 
 import { useParams, useHistory } from 'react-router-dom';
 
-import QuestionsContext from '../Context/QuestionsContext';
+import { useQuestionsContext } from '../Context/QuestionsContext';
 
 import getFromLocalStorage from '../utils/getFromLocalStorage';
 import pushToLocalStorage from '../utils/pushToLocalStorage';
@@ -15,10 +14,7 @@ import { useAlert } from 'react-alert';
 import './Question.css';
 
 const Question = () => {
-  const {
-    questions: { questions },
-    answers: { answers, setAnswers },
-  } = useContext(QuestionsContext);
+  const { questions, answers, setAnswers } = useQuestionsContext();
 
   const alert = useAlert();
 

@@ -1,7 +1,7 @@
-import { createContext } from 'react';
+import { createContext, useContext } from 'react';
 
 const QuestionsContext = createContext();
 
-QuestionsContext.displayName = 'QuestionsContext';
+export const useQuestionsContext = () => useContext(QuestionsContext); // the custom hook
 
 export default QuestionsContext;

@@ -35,9 +35,12 @@ const App = () => {
     <ThemeContextProvider>
       <QuestionsContext.Provider
         value={{
-          difficulty: { difficulty, setDifficulty },
-          questions: { questions, setQuestions },
-          answers: { answers, setAnswers },
+          difficulty,
+          setDifficulty,
+          questions,
+          setQuestions,
+          answers,
+          setAnswers,
         }}
       >
         <Switch>
