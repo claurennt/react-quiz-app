@@ -1,50 +1,37 @@
- .question-card{
-     
-   padding:20px; 
-    border: 1px #0FC1B7 solid;
-
- }
-
-
-.option-button{
-    
-    color: #fff;	
-    border: 1px solid  #0FC1B7;
-    cursor:pointer;
-    margin:10px;
-    padding:10px; 
-    width:15%;
-    font-size: 0.8rem;
-
-   
-    background-color: #29314A;
-      }
-      
-.option-button:hover{
-        
-        background-color:#0FC1B7;
-        border: 2px solid #29314A;
-        cursor:pointer;
-      }
-    
-.select-option{
-    color:white;
-    
+.question-card {
+  padding: 20px;
+  border: 1px #0fc1b7 solid;
 }
 
-@media screen and (max-width: 800px) {
+.option-button {
+  color: #fff;
+  border: 1px solid #0fc1b7;
+  cursor: pointer;
+  margin: 10px;
+  padding: 10px;
+  width: 15%;
+  font-size: 100%;
+
+  background-color: #29314a;
+}
+
+.option-button:hover {
+  background-color: #0fc1b7;
+  border: 2px solid #29314a;
+  cursor: pointer;
+}
+
+.select-option {
+  color: white;
+}
+
+@media screen and (max-width: 1078px) {
   .question-wrapper {
-    font-size: 0.9rem; 
-margin:0 auto;	
-width:%; 
-},
-.option-button{ font-size: 0.7rem}
-}
+    font-size: 1.5rem;
+    width: 40vw;
+  }
 
-@media screen and (max-width: 1000px) {
- 
-    .option-button{
-      width:30%;
-      margin:10px;
-    }
+  .option-button {
+    font-size: 1rem;
+  }
 }

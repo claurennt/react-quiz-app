@@ -1,36 +1,41 @@
-h1{
-    font-family: 'Montserrat', sans-serif;
+h1 {
+  font-family: "Montserrat", sans-serif;
 }
 
-.text{
-    display:"block";
+.text {
+  display: "block";
 }
 
-.begin-button, .level-button { 
-    color: #fff;	
-    border: 1px solid  #0FC1B7;
-    cursor:pointer;
-   
-    margin: 0 auto;
-    text-decoration: none;
-    background-color: #29314A;
-    
+.begin-button,
+.level-button {
+  color: #fff;
+  border: 1px solid #0fc1b7;
+  cursor: pointer;
+
+  margin: 0 auto;
+  text-decoration: none;
+  background-color: #29314a;
 }
 
-.begin-button{
-    margin-top: 20px;
-    padding:10px; 
-    width:30%;
-    font-size: 1.2rem;
+.begin-button {
+  margin-top: 20px;
+  padding: 10px;
+  width: 30%;
+  font-size: 1.2rem;
 }
 
-.begin-button:hover { 
-    background-color: #0FC1B7;    
+.begin-button:hover {
+  background-color: #0fc1b7;
 }
 
-.level-button{width:30%;font-size: 0.9rem;}
+.level-button {
+  width: 30%;
+  font-size: 1.2rem;
+}
 
 .level-button:focus {
-    background-color: #0FC1B7;
-  
+  background-color: #0fc1b7;
+}
+.level-button:hover {
+  background-color: #0fc1b7;
 }
