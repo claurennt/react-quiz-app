@@ -1,5 +1,5 @@
-import React from 'react';
-import { useQuestionsContext } from '../Context/QuestionsContext';
+import React from "react";
+import { useQuestionsContext } from "../Context/QuestionsContext";
 
 const DifficultyButton = ({ level }) => {
   const { setDifficulty } = useQuestionsContext();
@@ -11,7 +11,7 @@ const DifficultyButton = ({ level }) => {
   return (
     <>
       {/* change difficulty state based on prop*/}
-      <button className='level-button' onClick={() => handleClick()}>
+      <button className="level-button" onClick={() => handleClick()}>
         {level} {/* display difficulty level based on prop */}
       </button>
     </>

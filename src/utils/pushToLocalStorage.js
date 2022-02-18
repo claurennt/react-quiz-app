@@ -1,4 +1,4 @@
-import getFromLocalStorage from './getFromLocalStorage';
+import getFromLocalStorage from "./getFromLocalStorage";
 
 // helper function to append new item to local storage
 const pushToLocalStorage = (key, value) => {

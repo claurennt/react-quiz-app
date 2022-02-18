@@ -1,14 +1,13 @@
-import React, { useEffect, useState } from 'react';
-import { Switch, Route } from 'react-router-dom';
-import axios from 'axios';
-import QuestionsContext from './Context/QuestionsContext';
-import { ThemeContextProvider } from './Context/AppThemeContext';
-import Home from './pages/Home';
-import Question from './pages/Question';
-import Results from './pages/Results';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import { Switch, Route } from "react-router-dom";
+import axios from "axios";
+import QuestionsContext from "./Context/QuestionsContext";
+import { ThemeContextProvider } from "./Context/AppThemeContext";
+import Home from "./pages/Home";
+import Question from "./pages/Question";
+import Results from "./pages/Results";
 
-import saveToLocalStorage from './utils/saveToLocalStorage';
+import saveToLocalStorage from "./utils/saveToLocalStorage";
 
 const App = () => {
   const [questions, setQuestions] = useState([]);
@@ -29,7 +28,7 @@ const App = () => {
 
   useEffect(() => {
     //save fetched questions to local storage
-    saveToLocalStorage('questions-storage', questions);
+    saveToLocalStorage("questions-storage", questions);
   }, [questions]);
 
   return (
@@ -45,13 +44,13 @@ const App = () => {
         }}
       >
         <Switch>
-          <Route path='/play/:id'>
+          <Route path="/play/:id">
             <Question />
           </Route>
-          <Route path='/game/results'>
+          <Route path="/game/results">
             <Results />
           </Route>
-          <Route path='/'>
+          <Route path="/">
             <Home />
           </Route>
         </Switch>
